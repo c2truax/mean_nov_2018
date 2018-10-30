@@ -1,3 +1,18 @@
+Workflow
+========
+1. Fork class repo (link to your account).
+2. Clone the forked repo from your account.
+3. Add forked repo as upstream.
+
+Daily
+-----
+1. Create branch.
+2. Work normally on new branch (make commits, push, etc).
+3. Merge or rebase upstream master to new branch.
+4. Issue pull request to upstream from new branch.
+5. Delete new branch.
+
+
 Some good sites for information about forks
 -------------------------------------------
 https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow
