@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Github Hunting</title>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <style>
+            button {
+                width: 200px;
+                height: 60px;
+                background-color: green;
+                border-radius: 10px;
+                color: white;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    <button type="button" id="button">click me!</button>
+    <h1 id="name"></h1>
+    <script>
+        $('#button').click( function(){
+            $.get("https://api.github.com/users/albert-garcia316", displayName);
+            function displayName(data) {
+                console.log(data.login);
+                $('#name').text(data.login);
+            };
+        });
+    </script>
+</html>
