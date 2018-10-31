@@ -1,0 +1,13 @@
+<html>
+<body>
+    <% for (var x in cats) { %>
+        <h2>Detail page for <%= cats[x].name %>:</h2>
+        <img src="<%= cats[x].image %>" alt="<%= cats[x].name %>">
+        <h3>Food: <%= cats[x].food %></h3>
+        <h3>Spots:</h3>
+        <% for (var i in cats[x].spots) { %>
+            <h4><%= cats[x].spots[i] %></h4>
+        <% } %>
+    <% } %>
+</body>
+</html>
