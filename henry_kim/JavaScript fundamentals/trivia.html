@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trivia</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+
+<div class="container">
+  <h1 class="text-center my-4">Trivia Night</h1>
+  <div class="row">
+    <div class="col">
+      <h3 class="p-3 mb-2 bg-success text-white text-center">Science and Nature</h3>
+      <div class="card">
+        <div class="card-body">
+          <button type="button" class="button btn">100</button>
+          <p class="card-text scienceAndNatureQ1 font-weight-bold"></p>
+          <input type="radio" class="scienceAndNatureQ1_answers">
+        </div>
+      </div>
+
+    </div>
+    <div class="col">
+      <h3 class="p-3 mb-2 bg-light text-dark text-center">Video Games</h3>
+    </div>
+    <div class="col">
+      <h3 class="p-3 mb-2 bg-primary text-white text-center">Lost</h3>
+    </div>
+  </div>
+
+
+
+
+
+<script type="text/javascript">
+  var scienceAndNatureData;
+    $(document).ready(function(){
+      $.get("https://opentdb.com/api.php?amount=3&category=17", scienceAndNature)
+    function scienceAndNature(data) {
+      console.log(data);
+      $(".button").click(function() {
+        scienceAndNatureData = data
+        $(".scienceAndNatureQ1").html(scienceAndNatureData.results[0].question)
+    })
+  }
+  });
+
+
+</script>
+
+  </body>
+</html>
