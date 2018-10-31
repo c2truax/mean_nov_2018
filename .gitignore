@@ -68,3 +68,6 @@ typings/
 
 # IDE configs
 *.idea
+
+# emacs backup files
+.*~
