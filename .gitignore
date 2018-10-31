@@ -60,8 +60,11 @@ typings/
 # next.js build output
 *.next
 
+# zip files
+*.zip
+
 # Mac specific files
 *.DS_Store
 
 # IDE configs
-*.idea909
+*.idea
