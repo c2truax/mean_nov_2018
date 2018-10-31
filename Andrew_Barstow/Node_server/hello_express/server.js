@@ -6,7 +6,7 @@ console.log("Let's find out what express is", express);
 var app = express();
 console.log("Let's find out what app is", app);
 
-app.use(express.static(__dirname + '/static'));
+app.use(express.static(__dirname + '\\static'));
 
 app.set('views', __dirname + '\\views');
 
@@ -46,19 +46,21 @@ app.get('/cats', function(request, response) {
 
 app.get('/cats/:catid', function(request, response) {
 	context = {};
-	if (catid == 'majesty') {
+	if (request.params['catid'] == 'majesty') {
 		context['favorite_food'] = 'suckerplooms';
 		context['age'] = 2;
 		context['sleeping_spots'] = ['on the couch', 'with other ppl'];
+		context['name'] = 'majesty';
 	}
 
-	if (catid == 'sleepyface') {
+	if (request.params['catid'] == 'sleepyface') {
 		context['favorite_food'] = 'pizza';
 		context['age'] = 6;
 		context['sleeping_spots'] = 'everywhere';
+		context['name'] = 'sleepyface';
 	}
 
-	response.render('cats_info', context)
+	response.render('view_cat', context)
 })
 
 // tell the express app to listen on port 8000, always put this at the end of your server.js file
