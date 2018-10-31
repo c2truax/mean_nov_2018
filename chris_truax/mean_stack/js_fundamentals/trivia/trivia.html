@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <title>Trivia Game</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <a class="col-lg-4" href="trivia.html">Continue with new questions</a>
+            <h1 class="col-lg-4 text-center">Trivia Night</h1>
+            <h2 id="score" class="col-lg-4 text-right"></h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 p-4">
+                <h3 id="cat1" class="bg-warning text-center p-3"></h3>
+            </div>
+            <div class="col-lg-4 p-4">
+                <h3 id="cat2" class="bg-warning text-center p-3"></h3>
+            </div>
+            <div class="col-lg-4 p-4">
+                <h3 id="cat3" class="bg-warning text-center p-3"></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 p-3 text-center">
+                <p class="bg-primary p-5 text-white" id="lowcat1">100</p>
+                <h6 class="bg-primary p-3 text-white" id="lowcat1q"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat1a0"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat1a1"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat1a2"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat1a3"></h6>
+            </div>
+            <div class="col-lg-4 p-3 text-center">
+                <p class="bg-primary p-5 text-white" id="lowcat2">100</p>
+                <h6 class="bg-primary p-3 text-white" id="lowcat2q"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat2a0"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat2a1"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat2a2"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat2a3"></h6>
+            </div>
+            <div class="col-lg-4 p-3 text-center">
+                <p class="bg-primary p-5 text-white" id="lowcat3">100</p>
+                <h6 class="bg-primary p-3 text-white" id="lowcat3q"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat3a0"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat3a1"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat3a2"></h6>
+                <h6 class="bg-primary p-1 text-white" id="lowcat3a3"></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 p-3 text-center">
+                <p class="bg-primary p-5 text-white" id="medcat1">200</p>
+                <h6 class="bg-primary p-3 text-white" id="medcat1q"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat1a0"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat1a1"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat1a2"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat1a3"></h6>
+            </div>
+            <div class="col-lg-4 p-3 text-center">
+                <p class="bg-primary p-5 text-white" id="medcat2">200</p>
+                <h6 class="bg-primary p-3 text-white" id="medcat2q"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat2a0"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat2a1"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat2a2"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat2a3"></h6>
+            </div>
+            <div class="col-lg-4 p-3 text-center">
+                <p class="bg-primary p-5 text-white" id="medcat3">200</p>
+                <h6 class="bg-primary p-3 text-white" id="medcat3q"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat3a0"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat3a1"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat3a2"></h6>
+                <h6 class="bg-primary p-1 text-white" id="medcat3a3"></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 p-3 text-center">
+                <p class="bg-primary p-5 text-white" id="highcat1">300</p>
+                <h6 class="bg-primary p-3 text-white" id="highcat1q"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat1a0"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat1a1"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat1a2"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat1a3"></h6>
+            </div>
+            <div class="col-lg-4 p-3 text-center">
+                <p class="bg-primary p-5 text-white" id="highcat2">300</p>
+                <h6 class="bg-primary p-3 text-white" id="highcat2q"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat2a0"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat2a1"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat2a2"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat2a3"></h6>
+            </div>
+            <div class="col-lg-4 p-3 text-center">
+                <p class="bg-primary p-5 text-white" id="highcat3">300</p>
+                <h6 class="bg-primary p-3 text-white" id="highcat3q"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat3a0"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat3a1"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat3a2"></h6>
+                <h6 class="bg-primary p-1 text-white" id="highcat3a3"></h6>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
