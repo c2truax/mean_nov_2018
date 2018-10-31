@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hunting Github</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+
+<div class="container">
+  <button type="button" class='button'>Click Me</button>
+  <div class="stufs"></div>
+  </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $.get("https://api.github.com/users/hskim5012", displayName)
+    // Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+    function displayName(data) {
+      $(".button").click(function() {
+        console.log(data);
+        $(".stufs").html(data.login)
+      });
+    }
+  });
+
+</script>
+
+
+  </body>
+</html>
