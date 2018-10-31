@@ -1,0 +1,23 @@
+1.  Guess: hello is not defined
+    Result: hello is not defined
+
+2.  Guess: test is not defined
+    Result: test is not defined
+
+3.  Guess: super cool
+    Result: super cool
+
+4.  Guess: chicken, eat is not defined  
+    Result: chicken, eat is not defined
+
+5.  Guess: mean is not defined   
+    Result: mean is not defined
+
+6.  Guess: genre is not defined
+    Result: undefined, rock, r&b, dojo
+
+7.  Guess: san jose, learn is not defined
+    Result: san jose, seattle, burbank, san jose
+
+8.  Guess: {'name': "Chicago", 'students': "65", 'hiring': true }, TypeError
+    Result: {'name': "Chicago", 'students': "65", 'hiring': true }, TypeError
