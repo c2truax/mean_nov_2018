@@ -153,6 +153,8 @@ class Player {
 
 myDeck = new Deck();
 myDeck.shuffleCards();
-Ryanopolis = new Player('Ryanopolis', myDeck);
-Ryanopolis.showHand();
-Ryanopolis.discardCard(3).drawCard().discardCard(1).drawCard().showHand();
+myDeck.makeCards();
+myDeck.showCards();
+// Ryanopolis = new Player('Ryanopolis', myDeck);
+// Ryanopolis.showHand();
+// Ryanopolis.discardCard(3).drawCard().discardCard(1).drawCard().showHand();
