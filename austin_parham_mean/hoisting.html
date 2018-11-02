@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	var hello;
+	console.log(hello); //logs undefined
+	hello = 'world';
+
+	// var needle;
+	// needle = "haystack";
+	// var test;
+	// test();
+	// function test(){
+	// 	var needle;
+	// 	needle = "magnet";
+	// 	console.log(needle); //magnet
+	// }
+
+	// var brendan;
+	// brendan = 'super cool';
+	// function print(){
+	// 	brendan = 'only okay';
+	// 	console.log(brendan); //error- brendan not established
+	// }
+	// console.log(brendan); // 'super cool' - global brendan has been established
+
+	// var food = 'chicken';
+	// food = 'chicken';
+	// console.log(food);//chicken
+	// eat();
+	// function eat(){
+	// 	var food;
+	// 	food = 'half-chicken';
+	// 	console.log(food); //half-chicken
+	// 	food = 'gone';
+	// }
+	// var mean;
+	// mean(); //error
+	// console.log(food); //reference error
+	// mean = function(){
+	// 	var food;
+	// 	food="chicken";
+	// 	console.log(food); //chicken
+	// 	food = "fish";
+	// 	console.log(food); //fish
+	// }
+	// console.log(food); //reference error
+
+	// var genre;
+	// console.log(genre); //undefined
+	// genre = "disco";
+	// function rewind() {
+	// 	var genre;
+	// 	genre = "rock";
+	// 	console.log(genre); //rock
+	// 	genre = "r&b";
+	// 	console.log(genre); //r&b
+	// }
+	// rewind(); //calls function rewind
+	// console.log(genre) // disco
+
+	dojo = "san jose";
+	console.log(dojo); //reference error. never established.
+	function learn() {
+		var dojo;
+		dojo = "seattle";
+		console.log(dojo); // seattle
+		dojo = "burbank";
+		console.log(dojo); //burbank
+	}
+	learn(); //calls function - logs seattle,burbank
+	console.log(dojo); //reference error
+
+
+</script>
+<body>
+
+</body>
+</html>

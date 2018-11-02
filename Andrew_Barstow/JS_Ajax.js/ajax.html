@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<title>ajax!</title>
+	<script defer>
+
+		function displayName(data) {
+			console.log(data);
+		}
+		
+
+		$(document).ready(function() {
+
+			let myPromise = new Promise((resolve, reject) => {
+				$('.ajax-button').click(() => {
+					$.get("https://api.github.com/users/barstow123", displayName)
+				});
+			})
+
+		})
+	</script>
+</head>
+<body>
+	<h3>click the button!</h3>
+	<button type='button' class='ajax-button'>Ajax!</button>
+</body>
+</html>

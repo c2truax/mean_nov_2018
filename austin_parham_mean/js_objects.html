@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS_Objects</title>
+</head>
+<script type="text/javascript">
+	function student_name(arr){
+		for(var i = 0; i < arr.length; i++){
+			console.log("Name: ",arr[i].name," Cohort: ",arr[i].cohort)
+		}
+	}
+	var students = [
+    {name: 'Remy', cohort: 'Jan'},
+    {name: 'Genevieve', cohort: 'March'},
+    {name: 'Chuck', cohort: 'Jan'},
+    {name: 'Osmund', cohort: 'June'},
+    {name: 'Nikki', cohort: 'June'},
+    {name: 'Boris', cohort: 'June'}
+	];
+
+	student_name(students);
+
+	function employees(arr){
+		count = 1;
+		console.log("EMPLOYEES:");
+		for(var i = 0; i < arr.employees.length; i++){
+			console.log(count," - ",arr.employees[i].last_name,", ",arr.employees[i].first_name," - ", arr.employees[i].last_name.length + arr.employees[i].first_name.length);
+			count ++;
+		}
+		count = 1;
+		console.log("MANAGERS:");
+		for(var i = 0; i < arr.managers.length; i++){
+			console.log(count," - ",arr.managers[i].last_name,", ",arr.managers[i].first_name," - ", arr.managers[i].last_name.length + arr.managers[i].first_name.length);
+			count ++;
+		}
+	}
+	var users = {
+    employees: [
+        {'first_name':  'Miguel', 'last_name' : 'Jones'},
+        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+        {'first_name' : 'Nora', 'last_name' : 'Lu'},
+        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+    ],
+    managers: [
+       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+    ]
+ 	};
+ 	employees(users);
+</script>
+<body>
+
+</body>
+</html>

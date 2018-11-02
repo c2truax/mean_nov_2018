@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dog Data</title>
+  </head>
+  <body>
+
+    <h1><%= dogs.name %></h1>
+    <h2>Favorite Food: <%= dogs.food %></h2>
+    <h2>Age: <%= dogs.age %></h2>
+    <h2>Favorite Places to Sleep:</h2>
+    <% for (var x in dogs.sleep){ %>
+    <h2><%= dogs.sleep[x] %></h2>
+    <% } %>
+
+
+
+  </body>
+</html>
