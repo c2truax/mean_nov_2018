@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trivia</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</head>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$.get("https://opentdb.com/api.php?amount=10&category=31", displayData);
+			function displayData(data) {
+				console.log(data);
+				console.log(data.results.length);
+				for(var i = 0; i < data.results.length; i++){
+					$('#questions').before("<p>"+data.results[i].question+"</p>");
+				}
+			}
+
+		});
+</script>
+<body>
+<div id=questions></div>
+
+</body>
+</html>

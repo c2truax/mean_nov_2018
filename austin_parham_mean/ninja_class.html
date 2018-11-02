@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Class</title>
+</head>
+<script type="text/javascript">
+	var Ninja= function(name){
+		var speed = 3;
+		var strength = 3;
+		this.health = 100;
+		this.name = name;
+		this.sayName = function(){
+			console.log("My ninja name is "+this.name+"!")
+		}
+		this.showStats = function(){
+			console.log("Name: "+this.name+", Health: "+this.health+", Speed: "+speed+", Strength: "+strength)
+		}
+		this.punch = function(target){
+			if (target instanceof Ninja == true){
+				target.health -= 5;
+				console.log(target.name+" was punched by "+this.name+" in the crotch and lost 5 Health!");
+				target.showStats();	
+			}
+			else {
+				console.log(target+" is not a ninja. That is not our ninja way!");
+			}
+			
+		}
+		this.kick = function(target){
+			target.health -= (strength * 15);
+			console.log(target.name+" was kicked by "+this.name+" in the crotch and lost "+(strength * 15)+" Health!");
+			target.showStats();
+		}
+	}
+
+	var ninja = new Ninja("naruto");
+	var ninja2 = new Ninja("sasuke");
+	var ninja3 = 5;
+</script>
+<body>
+
+</body>
+</html>
