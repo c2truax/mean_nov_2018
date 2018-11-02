@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Sockets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+    
+            var socket = io(); //1
+            var array = [];
+            $('#submit').click(function(){
+                $('.input').each(function(){
+                    array.push($(this).val())
+                })
+                socket.emit('form', {data: array})
+            });
+            // socket.emit('greeting', function (data) { //4
+            //     console.log(data.msg); //5
+            //     socket.emit('thankyou', { msg: 'Thank you for connecting me! -Client' }); //6
+            // });
+         })
+    </script>
+</head>
+<body>
+    <form action="/results" method="post">
+        Name: <input class="input" type="text" name="">
+        Location: <select class="input" name="location">
+            <option>Dallas</option>
+            <option>Austin</option>
+            <option>Houston</option>
+        </select>
+        Language: <select class="input" name="language">
+            <option>Python</option>
+            <option>Mean</option>
+            <option>Ruby</option>
+        </select>
+        <input id="submit" type="submit" value="Submit">
+    </form>
+</body>
+</html>
