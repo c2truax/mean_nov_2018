@@ -1,0 +1,92 @@
+<html>
+    <head>
+       <title>Dojo Survey</title>
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+var socket = io();
+
+  $('form').submit(function(e){
+    //prevents the form to submit
+    event.preventDefault();
+    //create an empty array to store the class "information" data
+    var dataArray = []
+    // ".information" since it is a class; "each" grabs the object or array
+    //push it into the dataArray of each selected "information" class value
+  $('.information').each(function(){
+    dataArray.push($(this).val());
+  });
+  //The server listens for an event 'posting_form' and when this event gets triggered with the dataArray being passed
+  socket.emit('posting_form', dataArray);
+});
+
+  //Client listens for an event called 'updated_message' and when this event gets triggered, displays the message
+  socket.on('updated_message', function(data){
+    console.log(data.msg);
+    $('.information_emitting').html('<p> You emitted the follow information to the server: '+data.msg+' </p>');
+  });
+
+  // client listens for an event called 'random_number' and when this event gets triggered, shows the number in the HTML.
+  socket.on('random_number', function(data){
+    console.log(data.msg);
+    $('.information_emitting').append('<p> Your lucky number by the server is '+data.msg+' </p>');
+  });
+});
+
+
+</script>
+    </head>
+<body>
+
+  <div class="container">
+    <div class="information_emitting">
+  </div>
+</div>
+
+  <div class="container">
+    <h1>The Dojo Survey</h2>
+  <form>
+    <div class="form-group w-75 p-3">
+      <label for="Name">Name</label>
+      <input type="text" class="form-control information" name="name">
+    </div>
+  <div class="form-group w-75 p-3">
+    <label for="language">Dojo Location</label>
+      <select class="form-control information" name="Dojo_location">
+        <option>Please select a location</option>
+        <option>San Fransisco</option>
+        <option>New York City</option>
+        <option>Dallas</option>
+        <option>Home</option>
+      </select>
+  </div>
+
+  <div class="form-group  w-75 p-3 d-inline-block">
+    <label for="language">Favorite Language</label>
+    <select class="form-control information" name="favorite_language">
+      <option>Please select a language</option>
+      <option>Ruby</option>
+      <option>iOS</option>
+      <option>Python</option>
+      <option>C++</option>
+    </select>
+  </div>
+
+
+  <div class="form-group w-75 p-3">
+      <label for="Comment">Comment (required)</label>
+      <textarea class="form-control information" name="comment" rows="3"></textarea>
+      <button type="submit" class="btn btn-primary float-right mt-4">Submit</button>
+  </div>
+</form>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
