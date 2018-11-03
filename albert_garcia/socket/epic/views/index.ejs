@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Epic Button Game</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type ="text/javascript">
+            $(document).ready(function (){
+                var socket = io(); //1
+                $("#add").click(function(){
+                    var msg = 1;
+                    socket.emit('add', msg); //6
+                    socket.on('updated_counter', function (data) { //4
+                        $("span").text(data);
+                    });
+                });
+                $('#reset').click(function(){
+                    var msg = 0
+                    socket.emit('reset', msg);
+                    socket.on('reset_counter', function(data){
+                        $('span').text(data);
+                    });
+                });
+            })
+        </script>
+        <style>
+            body {
+                text-align: right;
+            }
+            div {
+                text-align: center;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+            #add {
+                color: white;
+                font-size: 24px;
+                background-color: blue;
+                border-radius: 15px;
+                padding: 15px 20px;
+                border: 2px solid black;
+                margin-right: 0px;
+            }
+            button {
+                color: white;
+                background-color: red;
+                font-size: 20px;
+                padding: 6px 12px;
+                margin-right: 30px;
+                border-bottom: 4px solid black;
+                border-right: 4px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>The button has been pushed <span></span> time(s)</h1>
+            <button id="add">Push the epic button</button>
+        </div>
+        <button id="reset">Reset count</button>
+    </body>
+</html>
