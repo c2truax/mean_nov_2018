@@ -1,0 +1,24 @@
+<html>
+<head>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+<h1>You have visted this page <%= count %> times!</h1>
+<form action="/results" method="post">
+	Name: <input type="text" name="name">
+	Dojo Location: <select name="location">
+		<option>Dallas</option>
+		<option>Austin</option>
+		<option>San Francisco</option>
+	</select>
+	Favorite Language: <select name="language">
+		<option>Python</option>
+		<option>Mean</option>
+		<option>Ruby</option>
+	</select>
+	<input type="Submit" value="Submit">
+</form>
+</body>
+</html>

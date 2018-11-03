@@ -1,0 +1,14 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+img{
+  width: 200px;
+  margin: 10px;
+}
+
+.heading{
+  background: blue;
+  color: white;
+}
