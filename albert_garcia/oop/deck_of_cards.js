@@ -21,6 +21,16 @@ class Deck {
             }
         }
     }
+    shuffle(){
+        var m = this.cards.length, t, i;
+        while (m) {
+            i = Math.floor(Math.random() * m--);
+            t = this.cards[m];
+            this.cards[m] = this.cards[i];
+            this.cards[i] = t;
+          }
+          return this;
+    }
 }
 class Player {
     constructor(name){
@@ -30,3 +40,5 @@ class Player {
 }
 deck1 = new Deck;
 deck1.cards[0].show()
+deck1.shuffle()
+player1 = new Player("Han")
