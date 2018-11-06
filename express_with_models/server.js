@@ -5,6 +5,7 @@ var express    = require('express'),
     mongoose   = require('./config/mongoose'),
     port       = 8000;
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
 app.set(path.join('views', __dirname, 'views'));
 app.set('view engine', 'ejs');
