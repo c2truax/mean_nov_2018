@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>view cat</title>
+</head>
+<body>
+	<div id='wrapper'>
+		<div id='header'>
+			<h1><%= name %></h1>
+		</div>
+		<% if (name == 'majesty' ) { %>
+		<img src='/images/cat1.jpg'>
+		<% } %>
+		<% if (name == 'sleepyface') { %>
+		<img src='/images/cat2.jpg'>
+		<% } %>
+		<p>favorite food: <%= favorite_food %></p>
+		<p>Age: <%= age %></p>
+		<p>Sleeping spots:</p>
+		<ul>
+		<% for (x in sleeping_spots) { %>
+			<li><%= sleeping_spots[x] %></li>
+		<% } %>
+		<ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>cat details</title>
+  </head>
+  <body>
+    <img src="images/<%= cats[0].name %>.jpeg">
+    
+      <h3>Name: <%= cats[0].name %></h3>
+      <h4>Favorite food: <%= cats[0].food %></h4>
+      <h4>Age: <%= cats[0].age %></h4>
+      <h4>Sleeping spots:</h4>
+    <% for (var x in cats[0].spots) { %>
+      <h4><%= cats[0].spots[x] %></h4>
+    <% } %>
+  </body>
+</html>
