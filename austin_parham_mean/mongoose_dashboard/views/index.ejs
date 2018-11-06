@@ -1,0 +1,28 @@
+<html>
+<head>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+<h1> Check out these mongeese!</h1>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Gender</th>
+		<th>Favorite Food</th>
+	</tr>
+	<% for(var mongoose of mongeese){ %>
+		<tr>
+			<th><%= mongoose.name %></th>
+			<th><%= mongoose.age %></th>
+			<th><%= mongoose.gender %></th>
+			<th><%= mongoose.favorite_food %></th>
+			<th><a href="/mongeese/<%= mongoose.id %>">View</a> | <a href="/mongeese/edit/<%= mongoose.id %>">Edit</a> | <a href="/mongeese/destroy/<%= mongoose.id %>">Murder</a></th>
+		</tr>
+	<% } %>
+</table>
+<a href="/new">Add to the flock!</a>
+</body>
+</html>
