@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class='container'>
+  <h1>Welcome, <%= user.f_name%>!</h1>
+  <form action='/message' method='post'>
+    <label for='message'>Post a Message</label>
+    <input type='textarea' name='content' id='message'>
+    <button type='submit' class='btn btn-primary'>Post a Message</button>
+  </form>
+  <div>
+  <h2>Welcome to the Message Board! </h2>
+    <% for (var i in messages) {%>
+    <p><%= messages[i].author.f_name%> says: <%=messages[i].content %></p>
+
+    <% } %>
+    <form action='/' method='post'>
+      <input type='hidden' value='{{post.id}}' name='post_id'>
+      <label for='comment'>Add Comment</label>
+      <input type='textarea' id='comment' name='comment'>
+      <button type='submit' class='btn btn-success'>Post a Comment</button>
+    </form>
+  </div>
+
+</div>
+</body>
