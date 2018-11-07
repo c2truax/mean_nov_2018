@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Message Board</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <h1>The Dojo Message Board</h1>
+        <form id="message" action="/messages/new" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+            <label for="content">Message:</label>
+            <textarea name="content" cols="30" rows="3"></textarea>
+            <button type="submit">Post Message</button>
+        </form>
+        <% for(var message of messages) { %>
+            <h3>Name: <%= message.name %></h3>
+            <h2>Message: <%= message.content%></h2>
+            <ul>
+                <div>
+                    <%for(var c of message.comments) {%>
+                        <li>Name: <%= c.name %> </li>
+                        <li class="comment">Comment: <%= c.comment%></li>
+                    <% } %>
+                </div>
+                <form action="/messages/<%= message.id%>/new_comment" method="POST">
+                    <li>Name:</li>
+                    <li><input type="text" name="name"></li>
+                    <li>Comment:</li>
+                    <li><textarea name="comment" cols="30" rows="3"></textarea></li>
+                    <li><button class="blue" type="submit">Post Comment</button></li>
+                </form>
+            </ul>
+        <% } %>
+    </body>
+</html>
