@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+</head>
+<body>
+  <% if(messages.message) { %>
+   <% for (var x of messages.message) { %>
+     <h6 class='text-danger m-2 text-center'><%= x %></h6>
+   <% } %>
+  <% } %>
+  <div class='row bg-primary'>
+      <h2 class='d-inline-block col-lg-10 ml-5 text-white'>Welcome to the Message Board</h2>
+  </div>
+  <div class='container align-top'>
+      <div class='col-lg-7 d-inline-block '>
+        <% for (var message of mb.reverse()) { %>
+        <div class='d-inline-block col-lg-9 mt-3'>
+          <h5 class="text-success"><%= message.name %> said:</h5>
+          <p class='d-inline-block'>"<%= message.content %>"</p>
+        </div>
+          <% for (var x of message.comments) { %>
+          <div class='d-inline-block col-lg-9 ml-5 comments'>
+              <h6 class="text-primary"><%= x.name %> commented:</h6>
+              <p class='d-inline-block text-secondary'>"<%= x.content %>"</p>
+          </div>
+          <% } %>
+        <form action='/comment' method='POST'>
+            <input type='hidden' name='message_id' value="<%= message._id %>">
+            <input class='m-1 row col-lg-9' type="text" name="name" placeholder="Name">
+            <textarea class='m-1 row col-lg-9' name="content" rows="3" placeholder="Comment"></textarea>
+            <input class="btn btn-primary d-inline-block  align-top" name='delete' type='submit' value="Comment">
+        </form>
+          <% } %>
+      </div>
+      <div class='col-lg-4 d-inline-block align-top'>
+          <form class="mt-5" action='/message' method='POST'>
+            <h4> Send a Message</h4>
+            <div class='row m-2'>
+              <input class='mt-2 col-lg-12' type="text" name="name" placeholder="Name">
+              <textarea class='mt-2 col-lg-12' name="content" rows="3" placeholder="Message"></textarea>
+              <input class="mt-2 btn btn-success d-inline-block  align-top" name='delete' type='submit' value="Message">
+            </div>
+          </form>
+      </div>
+  </div>
+</body>
+<style>
+  .comments {
+    font-size: 10px;
+  }
+</style>
+</html>

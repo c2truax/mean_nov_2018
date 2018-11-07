@@ -1,19 +1,19 @@
 var mongoose = require('mongoose');
 
-var QuoteSchema = new mongoose.Schema({
+var NifflerSchema = new mongoose.Schema({
   name: {
     type: String,
     default: '', 
     required: true, 
     minlength: 2
   },
-  quote: {
+  color: {
     type: String,
     default: '',
     required: true, 
-    minlength: 5
+    minlength: 3
   }
 }, {timestamps: true });
 
-var Quote = mongoose.model('Quote', QuoteSchema);
-module.exports = Quote;
+var Niffler = mongoose.model('Niffler', NifflerSchema);
+module.exports = Niffler;
