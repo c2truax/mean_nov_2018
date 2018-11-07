@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class='row bg-primary'>
+      <h1 class='d-inline-block col-lg-10 ml-5 text-white'>Hello Welcome to the Dog Pack</h1>
+      <a class='d-inline-block text-white' href="/">Logout</a>
+      <p class='d-inline-block text-white'>||</p>
+      <a class='d-inline-block text-white' href="/dogs/new">Add a Dog</a>
+    </div>
+    <h4>Dog Pack:</h4>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% if(dogs) { %>
+          <% for (var dog of dogs) { %>
+            <tr>
+                <th scope="row"><a href="/dogs/<%= dog._id %>"><%= dog._id %></a></th>
+                <td><%= dog.name %></td>
+                <td><%= dog.age %></td>
+                <td><%= dog.updatedAt %></td>
+                <td>
+                  <a class='badge badge-primary' href="/dogs/<%= dog._id %>">View</a>
+                  <a class='badge badge-success' href="/dogs/edit/<%= dog._id %>">Edit</a>
+                  <a class='badge badge-danger' href="/dogs/destroy/<%= dog._id %>">Delete</a>
+                </td>
+            </tr>
+          <% } %>
+          <% } %>
+        </tbody>
+    </table>
+
+  </body>
+</html>
