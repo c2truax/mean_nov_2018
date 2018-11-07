@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Quoting Dojo</title>
+        <style>
+            div {
+                border: 4px solid blue;
+                border-radius: 20px;
+                margin-top: 20px;
+            }
+            h1 {
+                text-align: center;
+                font-size: 40px;
+            }
+            p {
+                font-size: 24px;
+                margin-left: 5%;
+                color: rgb(92, 92, 92);
+            }
+            .blue {
+                padding-left: 50px;
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Here are some quotes!</h1>
+            <% for(var q of quotes) { %>
+                <p>"<%= q.quote %>"</p>
+                <p class="blue">-<%= q.name %> at <%= q.createdAt %></p>
+            <% } %>
+        </div>
+    </body>
+</html>
