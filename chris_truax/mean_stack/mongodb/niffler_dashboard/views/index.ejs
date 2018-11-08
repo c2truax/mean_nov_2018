@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Niffler Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container p-4">
+      <h1>Here are all the awesome nifflers!</h1>
+      <ul class="list-group col-10">
+        <% for (var niffler of all_nifflers.reverse()) { %>
+          <li class="list-group-item border-bottom border-dark m-2">
+            <h5>Name: <%= niffler.name %></h5>
+            <h6 class="text-primary">Color: <%= niffler.color %></h6>
+          </li>
+        <% } %>
+      </ul>
+      <a href="/nifflers/new" class="btn btn-dark m-2">Enter another niffler</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Epic Button Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" !src="">
+        $(document).ready(function () {
+            const socket = io();
+
+            $('#epic_button').click(function () {
+                socket.emit('epic_button_pressed');
+
+            });
+
+            $('#reset_button').click(function () {
+                socket.emit('reset_button_pressed');
+
+            });
+
+            socket.on('button_update', function (data) {
+                // language=HTML
+                $('#button_press_count').html(`<h3> The button has been pressed ${data} time(s).</h3>`)
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <p id="button_press_count"></p>
+
+    <span>Push the button to update the count!</span>
+    <p><button type="submit" id="epic_button" class="btn btn-primary btn-lg">Push the epic button</button></p>
+    <p><button type="reset" id="reset_button" class="btn btn-danger">Reset count</button></p>
+</div>
+
+</body>
+</html>

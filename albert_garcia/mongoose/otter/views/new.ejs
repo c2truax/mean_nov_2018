@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Add an otter</title>
+    </head>
+    <body>
+        <h1>Add an otter to the romp</h1>
+        <% if(messages.create) { %>
+            <% for (var x of messages.create) { %>
+             <h3><%= x %></h3>
+            <% } %>
+        <% } %>
+        <form action="/otters" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+            <label for="age">Age:</label>
+            <input type="number" name="age">
+            <label for="gender">Gender:</label>
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        <a href="/"><button>Go back</button></a>
+    </body>
+</html>
