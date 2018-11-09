@@ -74,8 +74,8 @@ constructor(private _http: HttpClient) {} // Set up private attribute to use Htt
 ### Create, and subscribe to, Angular Observable
 Add this method to `Name_of_serviceService` class in `name_of_service.service.ts`
 ```javascript
-getSomeThing() {
-  return this._http.get(`https://api.something.fun`);
+getSomething() {
+  return this._http.get(`https://api.chucknorris.io/jokes/random`);
 }
 ```
 
