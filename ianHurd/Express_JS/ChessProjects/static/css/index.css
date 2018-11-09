@@ -1,0 +1,34 @@
+*{
+	font-style: monospace;
+}
+
+#board{
+	height: auto;
+}
+
+#board_size{
+	width: 750px;
+	margin: 0 auto;
+
+}
+
+#clock{
+	font-size: 20px;
+	height: 30px;
+	display: inline-block;
+	border: solid black;
+	margin-bottom: 35px;
+}
+
+#clock_label{
+	margin-top: 20px;
+}
+#button{
+	margin-right: 10%;
+}
+
+#real_board{
+	border: solid black;
+	width: 800px;
+}
+

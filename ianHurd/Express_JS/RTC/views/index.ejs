@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script defer type ="text/javascript">
+        $(document).ready(function (){
+          var socket = io(); //1
+          socket.on('button_push', function(data) {
+            $('#wrapper').css('background-color',data.color);
+          });
+          $('.green').click(function() {
+            socket.emit('green');
+          });
+
+          $('.blue').click(function() {
+            socket.emit('blue');
+          });
+          $('.pink').click(function() {
+            socket.emit('pink');
+          });
+
+      });
+    </script>
+  </head>
+  <body>
+    <% if(!color) {%>
+      <div id='wrapper' style= "background-color : green;">
+    <% } else {%>
+      <div id='wrapper' style= "background-color : <%= color %>;">
+    <% } %>
+      <button class='green'>Green</button>
+      <button class='blue'>Blue</button>
+      <button class='pink'>Pink</button>
+    </div>
+  </body>
+</html>
