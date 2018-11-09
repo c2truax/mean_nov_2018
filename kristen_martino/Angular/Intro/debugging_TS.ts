@@ -107,7 +107,6 @@ console.log(math(8, 10)); // added this to log results
 // 7. Arrow functions and 'this'
 class Elephant {
 	constructor(public age: number) {
-		this.age = age; // add this.age = age in constructor
 	}
 
 	birthday = () => this.age++; // change birthday method to arrow function
