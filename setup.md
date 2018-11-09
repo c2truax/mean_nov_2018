@@ -100,7 +100,6 @@ this.getSomeThing();
 mkdir -p server/config # This will make both directories
 mkdir server/controllers
 mkdir server/models
-mkdir server/config
 touch server/config/mongoose.js # contents can be found in express_with_models on GitHub. NOTE: YOU WILL NEED TO CONNECT TO THE DATABASE YOU'RE USING!
 touch server/config/routes.js
 ```
