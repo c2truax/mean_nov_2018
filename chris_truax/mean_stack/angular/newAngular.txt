@@ -1,0 +1,7 @@
+//navigate to the folder directory you want your new app to be saved in*
+ng new public
+//go into the public folder you just created
+ng build --watch
+//this will stay running and update stuff automatically
+//put this in your server.js file
+app.use(express.static( __dirname + '/public/dist/public' ));
