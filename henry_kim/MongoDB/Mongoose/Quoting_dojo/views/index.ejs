@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+
+<% if(messages.Quote) { %>
+     <% for (var x of messages.Quote) { %>
+      <h5 class="text-danger"><%= x %></h5>
+     <% } %>
+ <% } %>
+
+      <form action="/quotes" method="post">
+        <div class="form-group">
+          <label for="name">Your name:</label>
+          <input type="text" class="form-control" name="name">
+        </div>
+          <div class="form-group">
+            <label for="quote">Your quote:</label>
+            <input type="textarea" class="form-control" name="quote">
+          </div>
+          <button type="submit" class="btn btn-primary float-right">Add my quote!</button>
+        </form>
+        <a href="/quotes"><button type="submit" class="btn btn-primary">Skip to quotes</button></a>
+    </div>
+  </body>
+</html>
