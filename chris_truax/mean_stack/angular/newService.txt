@@ -1,0 +1,27 @@
+//We'll set up our service by navigating to our Angular app in our terminal and running this line:
+ng g s http
+// in .../app/app.module.ts
+import { HttpService } from './http.service';
+providers: [HttpService],//and put HttpService here
+import { HttpClientModule } from '@angular/common/http';
+imports: [
+      BrowserModule,
+      HttpClientModule //put this here
+   ],
+// in .../app/http.service.ts
+import { HttpClient } from '@angular/common/http';
+constructor(private _http: HttpClient){} //put this in the constructor
+// in .../app/app.component.ts
+import { HttpService } from './http.service';
+export class AppComponent {
+   title = 'app';
+   constructor(private _httpService: HttpService){} //add this whole line 
+ }
+// in .../app/http.service.ts
+//add functions like the following below the constructor
+getTasks(){
+    let tempObservable = this._http.get('/tasks');
+    tempObservable.subscribe(data => console.log("Got our tasks!", data));
+ }
+//then add a call for these functions in our constructor
+this.getTasks();
