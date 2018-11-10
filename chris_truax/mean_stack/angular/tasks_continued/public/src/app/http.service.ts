@@ -10,7 +10,7 @@ export class HttpService {
   getTasks(){
     return this._http.get('/tasks');
   }
-  getATask(){
-    return this._http.get('/tasks/5be3744b48ccf4187a99ba54')
+  getATask(data){
+    return this._http.get(`/tasks/${data.id}`)
   }
 }

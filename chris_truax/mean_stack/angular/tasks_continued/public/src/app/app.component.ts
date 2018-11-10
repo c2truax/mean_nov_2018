@@ -8,14 +8,23 @@ import { HttpService } from './http.service';
 })
 export class AppComponent implements OnInit{
   title = 'Restful Tasks API';
-  all_tasks_title = 'All the tasks:';
-  task_title = 'The second task:';
+  all_tasks_title = 'Get all tasks:';
+  public show:boolean = false;
+  public hide:boolean = false;
   constructor(private _httpService: HttpService){
 
   }
   ngOnInit(){
+
+    
+  }
+  buttonClick(){
+    this.hide = !this.hide;
     this.getTasksFromService();
-    this.getATaskFromService();
+  }
+  showClick(data){
+    this.show = !this.show;
+    this.getATaskFromService(data);
   }
   tasks = [];
   getTasksFromService(){
@@ -26,8 +35,8 @@ export class AppComponent implements OnInit{
     
   }
   task = {};
-  getATaskFromService(){
-    let observable = this._httpService.getATask();
+  getATaskFromService(data){
+    let observable = this._httpService.getATask(data);
     observable.subscribe(data => { console.log("Got one tasks!", data)
     this.task = data['task'];
     });
