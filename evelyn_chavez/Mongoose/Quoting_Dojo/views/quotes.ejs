@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Quoting Dojo</title>
+    </head>
+    <body>
+        <div>
+            <h1>Here are some quotes!</h1>
+            <% for(var q of quotes) { %>
+                <p>"<%= q.quote %>"</p>
+                <p class="blue">-<%= q.name %> at <%= q.createdAt %></p>
+            <% } %>
+        </div>
+    </body>
+</html>

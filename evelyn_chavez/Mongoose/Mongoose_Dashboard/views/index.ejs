@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dogs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container p-4">
+      <h1>These are all the Dogs</h1>
+      <ul class="list-group col-10">
+        <% for (var dog of all_dogs) { %>
+          <li class="list-group-item">
+            Name: <a href="/dog/<%= dog.id%>"><%= dog.name %></a>
+            <a href="/dog/edit/<%= dog.id%>"><button>Edit</button></a>
+            <form action="/dog/destroy/<%= dog.id%>" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+          </li>
+        <% } %>
+      </ul>
+      <a href="/dog/new">Add a New Dog</a>
+    </div>
+  </body>
+</html>
