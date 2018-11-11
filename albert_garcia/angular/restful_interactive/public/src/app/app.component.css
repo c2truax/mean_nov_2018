@@ -1,0 +1,42 @@
+#body {
+    border: 5px solid goldenrod;
+    border-radius: 20px;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 42px;
+}
+#tasks {
+    border: 5px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+#show {
+    font-size: 32px;
+    color: white;
+    background-color: rgb(202, 130, 238);
+    padding: 5px 10px;
+    border-radius: 0px;;
+}
+p {
+    font-size: 32px;
+}
+span {
+    margin-left: 30%;
+}
+button {
+    font-size: 32px;
+    color: white;
+    background-color: teal;
+    border-radius: 50%;
+    padding: 30px 15px;
+}
+#one {
+    margin-top: 20px;
+    border: 5px solid green;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
