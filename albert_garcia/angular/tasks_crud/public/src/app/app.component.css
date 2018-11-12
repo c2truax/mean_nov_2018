@@ -1,0 +1,75 @@
+#body {
+    border: 5px solid goldenrod;
+    border-radius: 20px;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 42px;
+}
+#tasks {
+    border: 5px solid blue;
+    border-radius: 20px;
+    padding: 20px;
+    width: 60%;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+p {
+    font-size: 32px;
+    margin-left: 10px;
+}
+span {
+    margin-left: 10px;
+}
+button {
+    font-size: 24px;
+    color: white;
+    background-color: teal;
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+label, input {
+    font-size: 32px;
+    margin-right: 20px;
+}
+.text, .button {
+    display: inline-block;
+    vertical-align: top;
+    height: 200px;
+}
+.text {
+    width: 75%;
+}
+.button {
+    width: 24%;
+}
+.button button {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.task {
+    width: 100%;
+    height: 200px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+#one {
+    padding-top: 30px;
+    padding-left: 20px; 
+    width: 30%;
+    border: 5px solid blue;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+#one input {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#one button {
+    margin-bottom: 30px;
+}

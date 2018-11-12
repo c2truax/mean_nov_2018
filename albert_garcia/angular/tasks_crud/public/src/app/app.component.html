@@ -1,0 +1,36 @@
+<div id="body">
+  <h1>
+    {{ title }}!
+  </h1>
+  <h2>New Task</h2>
+  <form (submit)="onSubmit()">
+    <label for="title">Title</label>
+    <input type="text" name="newTask.title" [(ngModel)]="newTask.title">
+    <label for="description">Description</label>
+    <input type="text" name="newTask.description" [(ngModel)]="newTask.description">
+    <button type="submit">Create</button>
+  </form>
+  <div id="tasks">
+    <div *ngFor="let task of tasks" class="task">
+      <div class="text">
+        <p>{{task.title}}</p>
+        <p>{{task.description}}</p>
+      </div>
+      <div class="button">
+          <button (click)="onEdit(task._id)">Edit</button>
+          <button (click)="onDelete(task._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="one" id="one">
+    <form (submit)="onUpdate(oneTask._id)">
+        <label for="title">Title</label>
+        <input type="text" name="title" [(ngModel)]="oneTask.title">
+        <label for="description">Description</label>
+        <input type="text" name="description" [(ngModel)]="oneTask.description">
+        <button type="submit">Update</button>
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
