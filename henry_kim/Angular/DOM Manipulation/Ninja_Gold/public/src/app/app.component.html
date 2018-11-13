@@ -1,0 +1,38 @@
+
+<div class="navbar bg-dark justify-content-center">
+  <h2 class="text-white">Ninja Gold</h2>
+</div>
+<div class="row mt-3 mb-3 justify-content-center">
+  <p class="col-1 h3 font-weight-normal">Total:</p>
+  <div class="col-1 bg-white border border-dark" *ngIf="this.info.length != 0">{{this.info[0].total_gold}}</div>
+</div>
+<div class="container">
+  <div class="row justify-content-center mb-3">
+    <div class="col-2 border border-dark p-3 mr-3">
+      <h2>Farm</h2>
+      <p>Earns 2-5 gold</p>
+      <button class="btn btn-success" (click)="clickHanlder('farm')">Farm!</button>
+    </div>
+    <div class="col-2 border border-dark p-3 mr-3">
+      <h2>Cave</h2>
+      <p>Earns 5-10 gold</p>
+      <button class="btn btn-success" (click)="clickHanlder('cave')">Cave!</button>
+    </div>
+    <div class="col-2 border border-dark p-3 mr-3">
+      <h2>House</h2>
+      <p>Earns 7-15 gold</p>
+      <button class="btn btn-success" (click)="clickHanlder('house')">House!</button>
+    </div>
+    <div class="col-2 border border-dark p-3 mr-3">
+      <h2>Casino</h2>
+      <p>Gamble 100 gold</p>
+      <button class="btn btn-success" (click)="clickHanlder('casino')">Casino!</button>
+    </div>
+  </div>
+  <div class="row">
+    <h3>Activities:</h3>
+  </div>
+  <div class="border border-dark col-12">
+  <p *ngFor="let activity of info" style="color: {{activity.color}}">{{activity.message}}</p>
+  </div>
+</div>
