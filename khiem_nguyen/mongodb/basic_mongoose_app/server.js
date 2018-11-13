@@ -5,12 +5,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 var path = require('path');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/basic_mongoose');
+mongoose.connect('mongodb://localhost/quoting_dojo');
 mongoose.Promise = global.Promise;
 
 var UserSchema = new mongoose.Schema({
   name: String,
-  age: Number
+  age: Number,
+  hobbies: String
 });
 mongoose.model('User', UserSchema);
 const User = mongoose.model('User');

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Editing <%= cat.name %>'s Info</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <% if (messages.edit) { %>
+            <% for (var i of messages.edit) { %>
+              <p class="alert alert-danger"><%= i %></p>
+            <% } %>
+        <% } %>
+        <nav class="navbar mb-3 bg-primary text-light">
+            <h1>Editing <%= cat.name %>'s Info</h1>
+        </nav>
+        <form class="col-4" action="/cats/<%= cat._id %>" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" name="name" value="<%= cat.name %>" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="age" value="<%= cat.age %>" placeholder="Age">
+            </div>
+            <div class="form-row">
+            <button type="submit" class="btn btn-success">Update</button>
+            <a href="/" class="btn btn-secondary ml-auto">Back</a>
+            </div>
+        </form>
+
+    </body>
+</html>

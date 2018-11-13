@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome to Kitten Dashboard</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container-fluid bg-primary text-white">
+            <h1 class="navbar-brand">Welcome to Catzzz Dashboard</h1>
+        </div>
+        <div class="container-fluid">
+            <a href="/cats/new"> Add New Cat</a>
+        </div>
+        <table class="table table-striped mb-3">
+        <thead>
+            <tr class="bg-primary text-white">
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% for (var i in cats) { %>
+                <tr>
+                    <td><%= cats[i].name %></td>
+                    <td><%= cats[i].age %></td>
+                    <td>
+                        <a href="/cats/<%= cats[i]._id %>"> Show </a>
+                        <a href="/cats/edit/<%= cats[i]._id %>"> Edit </a>
+                        <a href="/cats/destroy/<%= cats[i]._id %>"> Delete </a>
+                    </td>
+                </tr>
+          <% } %>
+        </tbody>
+        </table>
+    </body>
+</html>
