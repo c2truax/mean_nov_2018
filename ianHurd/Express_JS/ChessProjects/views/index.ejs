@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="/css/index.css">
+    <script defer type ="text/javascript">
+      $(document).ready(function (){
+        var socket = io();
+        var piece = board[6][1];
+        console.log(piece);
+        var x = 1;
+        var y = 5;
+        socket.emit('movePiece', {piece: piece, moveX: x, moveY: y});
+        socket.on('clientMove', function(data) {
+          console.log("The returned player is! "+data.player);
+          if (data.player == 1) {
+            player1.movePiece(data.piece, data.moveX, data.moveY);
+          } else if (data.player == 2) {
+            player2.movePiece(data.piece, data.moveX, data.moveY);
+          }
+          console.log('data: ' + data);
+          drawBoard();
+        });
+
+        $('.p1').click(function(){
+          console.log('Lookie')
+          $('body').append('<button type="button" name="button" class="undo">Undo</button>')
+          $('.undo').click(function(){
+            $('.undo').remove()
+            socket.emit('playerLeave')
+          });
+          socket.emit('playerJoin', {num: 1});
+        });
+
+        $('.p2').click(function(){
+          $('body').append('<button type="button" name="button" class="undo">Undo</button>')
+          $('.undo').click(function(){
+            $('.undo').remove()
+            socket.emit('playerLeave')
+          });
+          console.log('Lookie')
+          socket.emit('playerJoin', {num: 2});
+        });
+
+        $('.undo').click(function(){
+          socket.emit('playerLeave')
+        });
+
+        socket.on('hideButton', function(data){
+          $('.p'+data.num).remove();
+          $('h1').html("Player num is "+data.num)
+        });
+
+        socket.on('buttonReset', function(data){
+          console.log("Im here")
+          console.log(data.num);
+          $('body').append('<button type="button" name="button" class="p'+data.num+'">Player '+data.num+'</button>');
+          $('h1').html('');
+          $('.p1').unbind('click');
+          $('.p1').click(function(){
+            console.log('Lookie')
+            $('body').append('<button type="button" name="button" class="undo">Undo</button>');
+            $('.undo').click(function(){
+              $('.undo').remove()
+              socket.emit('playerLeave')
+            });
+            socket.emit('playerJoin', {num: 1});
+          });
+          $('.p2').unbind('click');
+          $('.p2').click(function(){
+            $('body').append('<button type="button" name="button" class="undo">Undo</button>');
+            $('.undo').click(function(){
+              $('.undo').remove()
+              socket.emit('playerLeave')
+            });
+            socket.emit('playerJoin', {num: 2});
+          });
+        });
+      });
+
+    </script>
+  </head>
+  <body>
+
+    <h1>
+      <% if (testp1 || testp2) { %>
+      Player num is <%= playerNum %>
+      <% } %>
+    </h1>
+
+    <% console.log("Player num is "+playerNum); %>
+    <% if (!testp1 && playerNum == 0) { %>
+    <button type="button" name="button" class="p1">Player 1</button>
+    <% } %>
+    <% if (!testp2 && playerNum == 0) { %>
+    <button type="button" name="button" class="p2">Player 2</button>
+    <% } %>
+    <% if (playerNum > 0) { %>
+    <button type="button" name="button" class="undo">Undo</button>
+    <% } %>
+
+    <div class="container">
+			<div class="row">
+				<div class="col">
+					<h1 class= " display-1 text-monospace text-center">Chess</h1>
+				</div>
+			</div>
+		</div>
+
+		<div id="settings" class="row">
+			<div class="col">
+				<h2 class=" display-4 text-monospace float-right mr-5">Settings</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col mr-5">
+				<form>
+					<label class="radio-inline float-right">
+						<input type="radio" name="optradio" value="yes" checked>Yes
+					</label>
+					<label class="radio-inline float-right mr-5">
+						<input type="radio" name="optradio" value="no" checked>No
+					</label>
+					<h2 id="clock_label " class="float-right text-monospace  d-inline">Blitz:</h2>
+
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<button id="button" class="btn-dark float-right mt-3 mr-5">Start Game</button>
+			</div>
+		</div>
+		<div id='board_size' class=" mt-5 row">
+			<div class="col text-center">
+				<div id="real_board"></div>
+				<h2 id="clock_label " class="text-center text-monospace  d-inline">Timer:</h2>
+				<p class='text-center text-monospace d-inline' id="clock">10:00</p>
+			</div>
+		</div>
+
+  </body>
+</html>
+<script type="text/javascript" src="js/chess_game.js"></script>

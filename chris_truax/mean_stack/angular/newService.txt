@@ -1,0 +1,41 @@
+//We'll set up our service by navigating to our Angular app in our terminal and running this line:
+ng g s http
+// in .../app/app.module.ts
+import { HttpService } from './http.service';
+providers: [HttpService],//and put HttpService here
+import { HttpClientModule } from '@angular/common/http';
+imports: [
+      BrowserModule,
+      HttpClientModule //put this here
+   ],
+// in .../app/http.service.ts
+import { HttpClient } from '@angular/common/http';
+constructor(private _http: HttpClient){} //put this in the constructor
+// in .../app/app.component.ts
+import { HttpService } from './http.service';
+export class AppComponent {
+   title = 'app';
+   constructor(private _httpService: HttpService){} //add this whole line 
+ }
+import { Component, OnInit } from '@angular/core';
+// Implement OnInit.
+export class AppComponent implements OnInit {
+    constructor(private _httpService: HttpService){}
+    // ngOnInit will run when the component is initialized, after the constructor method.
+    ngOnInit(){
+      this.getTasksFromService();
+    }
+    getTasksFromService(){
+      let observable = this._httpService.getTasks();
+      observable.subscribe(data => console.log("Got our tasks!", data));
+    }
+}
+// in .../app/http.service.ts
+//add functions like the following below the constructor
+getTasks(){
+    return this._http.get('/tasks');
+ }
+// in .../app/app.component.ts
+//add function like the following below the constructor
+
+//also add

@@ -5,6 +5,7 @@ console.log("Let's find out what express is", express);
 var app = express();
 console.log("Let's find out what app is", app);
 // use app's get method and pass it the base route '/' and a callback
+app.use(express.static(__dirname + "/static"));
 app.get('/', function(request, response) {
     // just for fun, take a look at the request and response objects
    console.log("The request object", request);
