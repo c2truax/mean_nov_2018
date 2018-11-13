@@ -8,7 +8,7 @@ import { HttpService } from './http.service';
 })
 export class AppComponent implements OnInit {
   tasks = [];
-  oneTaskbyID = [];
+  oneTask: Object;
   newTask: any;
   constructor (private _httpService : HttpService ) {}
 
@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   ngOnInit () {
     // this.getTasksFromService();
     this.tasks = [];
-    this.oneTaskbyID = [];
     this.newTask = { title: "", description: "", completed: false}
   };
 
@@ -30,38 +29,40 @@ export class AppComponent implements OnInit {
   };
 
 
- getTaskById(id){
+ getTask(id){
    let observable = this._httpService.getTaskById(id);
    observable.subscribe (data => {
      console.log("Got our task by ID!", data);
-     this.oneTaskbyID = data["data"];
+     this.oneTask = data["data"];
    });
  }
 
- onSubmit() {
+ createTask() {
    let observable = this._httpService.addTask(this.newTask);
    observable.subscribe(data => {
      console.log("Got data from post back", data);
   // Reset this.newTask to a new, clean object.
      this.newTask = { title: "", description: "", completed: false }
   //updates the task list with the most recent
-     // this.getTasksFromService();
+     this.getTasksFromService();
   });
- }
-
- editTask(id){
-   //check what to pass
-   console.log("Starting to edit!");
-   let observable = this._httpService.updateTask(id, this.oneTaskbyID);
-   observable.subscribe(data => {
-     console.log("Updated task:", data);
-   });
  }
 
  deleteTask(id){
    let observable = this._httpService.destroyTask(id);
    observable.subscribe(data => {
      console.log("Deleted task");
+     this.getTasksFromService();
+   });
+ }
+
+ editTask(id){
+   let observable = this._httpService.updateTask(this.oneTask);
+   observable.subscribe(data => {
+     console.log("updated task:", data);
+     //removes all edit by setting it null
+     this.oneTask = null;
+     //grabs the task list after completion
      this.getTasksFromService();
    });
  }
