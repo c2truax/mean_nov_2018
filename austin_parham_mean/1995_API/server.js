@@ -19,7 +19,7 @@ mongoose.Promise = global.Promise;
 
 var Mongoose = mongoose.model('Mongoose') // We are retrieving this Schema from our Models, named 'User'
 // Integrate body-parser with our App
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // Require path
 var path = require('path');
 // Setting our Static Folder Directory
@@ -34,12 +34,23 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
   Mongoose.find({}, function(err, mongeese){
     console.log("***********",mongeese);
-    res.render('index', {mongeese: mongeese} );
+    res.json(mongeese);
   });
 })
 // **************************Form for new Mongoose***************************//
-app.get('/new', function(req,res){
-  res.render('new_mongoose');
+app.get('/new/:name', function(req,res){
+  var mongoose = new Mongoose({name:req.params.name});
+  mongoose.save(function(err){
+    if(err) {
+      console.log('something went wrong');
+    } 
+    else { // else console.log that we did well and then redirect to the root route
+      console.log('successfully added a user!');
+      Mongoose.find({}, function(err,mongeese){
+        res.json(mongeese);
+      })
+    }
+  })
 })
 // ************************Create new Mongoose in server*****************************//
 app.post('/new_mongoose', function(req, res) {
@@ -58,10 +69,10 @@ app.post('/new_mongoose', function(req, res) {
   })
 })
 // ***********************Mongoose Info******************************//
-app.get('/mongeese/:id', function(req, res) {
+app.get('/:name', function(req, res) {
   console.log("*****ID Procured******",req.params.id);
-  Mongoose.findOne({_id:req.params.id}, function(err, mongoose){
-    res.render('mongeese',{mongoose: mongoose});
+  Mongoose.findOne({name:req.params.name}, function(err, mongoose){
+    res.json(mongoose);
   });
 });
 
@@ -83,14 +94,18 @@ app.post('/mongeese/:id',function(req,res){
 });
 
 // ***********************Kill a Mongoose******************************//
-app.get('/mongeese/destroy/:id',function(req,res){
+app.get('/destroy/:name',function(req,res){
   console.log("*****ID Procured******",req.params.id);
-  Mongoose.remove({_id:req.params.id}, function(err){  
+  Mongoose.remove({name:req.params.name}, function(err){
+    Mongoose.find({}, function(err, mongeese){
+    console.log("***********",mongeese);
+    res.json(mongeese);
+    });
   });
     res.redirect('/');
 });
 // ***********************Server Setting******************************//
 // Setting our Server to Listen on Port: 8000
-app.listen(8000, function() {
-    console.log("listening on port 8000");
+app.listen(8010, function() {
+    console.log("listening on port 8010");
 })
