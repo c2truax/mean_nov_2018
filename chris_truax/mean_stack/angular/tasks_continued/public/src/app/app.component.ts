@@ -8,7 +8,7 @@ import { HttpService } from './http.service';
 })
 export class AppComponent implements OnInit{
   title = 'Restful Tasks API';
-  all_tasks_title = 'Get all tasks:';
+  all_tasks_title = 'Get All Tasks';
   public show:boolean = false;
   public hide:boolean = false;
   constructor(private _httpService: HttpService){
