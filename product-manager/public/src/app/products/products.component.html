@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+
+    <!-- This is a nested component -->
+    <!-- loop through all products returned from _http.get -->
+    <app-product *ngFor="let p of products"
+                  [product]="p"
+                  class="align-items-center border"
+                  style="width: 18rem;">
+    </app-product>
+  </div>
+</div>

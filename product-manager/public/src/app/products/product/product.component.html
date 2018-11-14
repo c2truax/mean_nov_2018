@@ -1,0 +1,18 @@
+<h2 class="card-header text-center">
+  <!--  display each individual products name -->
+  {{ data.name }}
+  <!--  button to set the selectedProduct in this component for use in child component -->
+  <button [routerLink]="[data._id]" type="button" class="btn btn-info ml-5">Show</button>
+</h2>
+
+<div class="card-body text-center">
+  <h5>${{ data.price }}</h5>
+  <img class="img-fluid" style="max-width: 50%; height: auto;" [src]="data.image_url" alt="">
+
+  <div class="card-block w-100">
+    <!--  This button will take us to the nested route for editing a product -->
+    <button [routerLink]="['edit', data._id]" type="button" class="btn btn-primary mr-5">Edit</button>
+    <button type="button" class="btn btn-danger">Delete</button>
+  </div>
+
+</div>
