@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container border border-secondary">
+  <div style="text-align:center">
+      <h1>Restful Task API Interactive </h1>
+      <h2>All the tasks:</h2>
+<button class="btn btn-success" type="button" (click)="getTasksFromService()">Get all Tasks</button>
+</div>
+
+<div style="text-align:center" *ngFor="let task of tasks">
+  <p>{{ task.title }}</p>
+  <!-- search by task id -->
+  <button class="btn" (click)="getTaskById(task._id)">Show</button>
+</div>
+
+<div class="border border-success" style="text-align:center">
+<app-task *ngIf="this.oneTaskbyID" [taskToShow]="this.oneTaskbyID"></app-task>
+</div>
+
+<router-outlet></router-outlet>

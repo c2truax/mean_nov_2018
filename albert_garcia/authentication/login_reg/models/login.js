@@ -24,7 +24,7 @@ var UserSchema = new mongoose.Schema({
   password: {
     type: String,
     minlength: [8, "password must be at least 8 characters"],
-    // match: /^()?$/
+
   }
 }, {timestamps: true });
 

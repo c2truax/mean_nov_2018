@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+  <h1>Welcome to {{ title }}!</h1>
+  <h2>Hello ...User...</h2>
+  <h2>Total Gold: {{ gold }}</h2>
+  <div id="body">
+    <div class="location">
+      <h2>Farm</h2>
+      <h3>Earn 7-15 gold</h3>
+      <button (click)="onFarm()">Farm!</button>
+    </div>
+    <div class="location">
+        <h2>Cave</h2>
+        <h3>Earn 5-10 gold</h3>
+        <button (click)="onCave()">Mine!</button>
+    </div>
+    <div class="location">
+        <h2>House</h2>
+        <h3>Earn 2-5 gold</h3>
+        <button (click)="onHouse()">Check!</button>
+    </div>
+    <div class="location">
+        <h2>Casino</h2>
+        <h3>Win or loose upto 100 gold</h3>
+        <button *ngIf="casino" (click)="onCasino()">Gamble!</button>
+    </div>
+    <h2 id="act">Activity Log:</h2>
+    <div id="log">
+      <p *ngFor="let action of activity" [class]="action.color">{{action.message}}</p>
+    </div>
+  </div>
+
+
+
+<router-outlet></router-outlet>
