@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container col-lg-4 p-2 bg-warning text-white">
+  <div class="container p-2 bg-primary text-center">
+    <h1>
+      {{ title }}
+    </h1>
+    <button (click)="buttonClick()" class="btn btn-warning">{{ all_products_title }}</button>
+    <ng-container *ngIf="hide">
+    <ul class="container">
+      <li *ngFor="let p of products" class="row p-2 m-2">
+        <button (click)="showClick({id: p._id})" class="btn btn-info p-2 m-2">show</button>
+        <p class="p-2 m-2">{{p.title}}</p>
+      </li>
+    </ul>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="show">
+  <div class="container p-2 bg-info">
+    <h4 class="p-2 m-2">{{product.title}}</h4>
+    <h6 class="p-2 m-2">${{product.price}}</h6>
+    <img src="{{product.imageUrl}}" alt="productimage">
+  </div>
+  </ng-container>
+</div>
+
+
+
+<router-outlet></router-outlet>
