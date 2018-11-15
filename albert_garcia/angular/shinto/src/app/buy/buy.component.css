@@ -1,0 +1,15 @@
+h1, p, form {
+    margin-left: 50px;
+}
+h1 {
+    font-size: 42px;
+}
+p {
+    font-size: 28px;
+}
+input, button {
+    font-size: 28px;
+}
+button {
+    margin-left: 20px;
+}
