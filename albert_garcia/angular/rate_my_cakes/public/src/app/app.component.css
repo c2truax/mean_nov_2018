@@ -1,0 +1,65 @@
+.p-10{
+    padding: 10px;
+}
+
+.p-5{
+    padding: 5px;
+}
+
+.m-5{
+    margin: 5px;
+}
+
+.ml-10{
+    margin-left: 10px;
+}
+
+.mr-20{
+    margin-right: 20px;
+}
+
+.border-black{
+    border: 2px solid black;
+}
+
+.border-bottom{
+    border-bottom: 1px solid lightblue;
+}
+
+.d-inline-block{
+    display: inline-block;
+}
+
+.col-3{
+    width: 25%;
+}
+
+.col-8{
+    width: 67%;
+}
+
+.btn-info{
+    background-color: #7fb0ff;
+    color: white;
+    border-radius: 5px;
+    border-color: #7fb0ff;
+}
+
+.scroll{
+    overflow: scroll;
+}
+
+.align-top{
+    vertical-align: top;
+}
+
+.h-300{
+    height: 300px;
+}
+
+.img-small{
+    height: 125px;
+}
+p, label, input, textarea, select {
+    font-size: 24px;
+}

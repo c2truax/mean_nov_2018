@@ -1,0 +1,9 @@
+<h1>Baked by {{cakeToShow.baker}}</h1>
+<img class="img-l" [src]="cakeToShow.img_url" alt="cake photo">
+<div class="d-inline-block align-top ml-10">
+  <p>Average Rating: {{avg}}</p>
+  <div *ngFor="let rating of cakeToShow.ratings; let i=index">
+    <p>{{cakeToShow.reviews[i]}}</p>
+    <p>{{rating}}</p>
+  </div>
+</div>
