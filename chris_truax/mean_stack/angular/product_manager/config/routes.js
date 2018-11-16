@@ -1,4 +1,5 @@
 var products_controller = require('../controllers/products_controller');
+    path                = require('path');
 
 module.exports = function(app) {
   app.get('/api/products', products_controller.products);

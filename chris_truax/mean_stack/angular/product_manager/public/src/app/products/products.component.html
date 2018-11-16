@@ -1,0 +1,17 @@
+<div class="container col-lg-10 p-2 bg-warning text-white">
+    <div class="container p-2 bg-primary text-center">
+        <h1>
+          {{ title }}
+        </h1>
+        <div class="container row">
+          <button [routerLink] = "['/']" class="btn btn-dark m-2">Home</button>
+          <button [routerLink] = "['/products']" class="btn btn-dark m-2">Product List</button>
+          <button [routerLink] = "['/products','new']" class="btn btn-dark m-2">Create New Product</button>
+        </div>
+    </div>
+
+      <router-outlet></router-outlet>
+</div>
+  
+  
+  

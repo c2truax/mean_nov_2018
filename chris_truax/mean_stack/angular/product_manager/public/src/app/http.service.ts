@@ -13,4 +13,10 @@ export class HttpService {
   getAProduct(data){
     return this._http.get(`/api/products/${data.id}`)
   }
+  delete(data){
+    return this._http.delete(`/api/products/${data.id}`)
+  }
+  addProduct(newProduct){
+    return this._http.post("/api/products", newProduct);
+  }
 }

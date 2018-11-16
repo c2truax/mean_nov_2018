@@ -1,0 +1,14 @@
+<div class="container bg-dark text-white">
+    <div class="container">
+      <div *ngFor="let p of products" class="col-lg-3 d-inline-block p-1 m-2 text-center">
+        <img src="{{p.imageUrl}}" alt="productimage">
+        <p class="p-1 m-2">{{p.title}}</p>
+        <h6 class="p-1 m-2">${{p.price}}</h6>
+        <div class="row ml-5">
+          <button (click)="showClick({id: p._id})" class="badge badge-success ml-3 m-2">edit</button>
+          <button (click)="deleteProduct({id: p._id})" class="badge badge-danger m-2">delete</button>
+        </div>
+      </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
